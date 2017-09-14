@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Theatre</title>
+    <script src="aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+ <a-assets>
+    <video id="friday" autoplay loop="true" src="His&#32;Girl&#32;Friday&#32;(1940).mp4"></video>
+<!-- 
+    <video id="bird" autoplay loop="true" src="bird.mp4"></video>
+ -->
+  </a-assets>
+  <!-- Using the asset management system. -->
+<!-- 
+ 		<a-curvedimage id="database-screen" src="#friday" radius="50" theta-length="50" height="40" rotation="0 200 0" scale="1 1 1"></a-curvedimage>
+ -->
+ <a-video src="#friday" width="64" height="32" position="-6 17 -30"></a-video>
+ 
+     <a-entity position="0 5 10">
+        <a-camera></a-camera>
+      </a-entity>
+    <a-sky src="skies/theatre-dark.jpg" radius="100"></a-sky>
+   </a-scene>
+  </body>
+</html>
