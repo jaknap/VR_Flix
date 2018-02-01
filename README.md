@@ -5,6 +5,6 @@ Research Project developed at RIT, which enables users located in different loca
 Tech-stack used: Three.js, A-frame, Molly, WebRTC
 
 
-<b>Instructions<b>:
+<b>Instructions<b>:<br>
 Run the index.html file located in the Droom folder, which would load the scene and the assests from the asssets folder.
 You can move around the space by moving the pointer to the green-colored blocks on the floor.
