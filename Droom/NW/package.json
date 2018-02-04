@@ -1,0 +1,12 @@
+{
+  "name": "NW",
+  "version": "1.0.0",
+  "description": "My first multi-user virtual reality",
+  "scripts": {
+    "start": "node ./server/server.js"
+  },
+  "author": "YOUR_NAME",
+  "dependencies": {
+    "networked-aframe": "^0.3.0"
+  }
+}
