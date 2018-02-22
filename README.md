@@ -1,6 +1,6 @@
 # VR_Flix
-A virtual home theater experience, shared between multiple users
-Uses networking A-frame framework by Hayden Lee: https://github.com/networked-aframe/networked-aframe
+A virtual home theater experience, shared between multiple users.
+Credits to networking A-frame framework by Hayden Lee: https://github.com/networked-aframe/networked-aframe
 
 Research Project developed at RIT, which enables users located in different locations to have a social movie viewing experience.
 Tech-stack used: Three.js, A-frame, Molly, WebRTC
