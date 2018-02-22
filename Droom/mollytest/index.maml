@@ -11,7 +11,7 @@
     <a-scene> 
     <maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 4">
       <maml:row> 
-      <a-video class="intersectable" material="shader: flat; src: assets/His&#32;Girl&#32;Friday&#32;(1940).mp4" position="*[position_x]* *[position_y]* *[position_z]*"  height="*[height]*" width="*[width]*"></a-video>
+        <a-video class="intersectable" material="shader: flat; src: assets/His&#32;Girl&#32;Friday&#32;(1940).mp4" position="*[position_x]* *[position_y]* *[position_z]*"  height="*[height]*" width="*[width]*"></a-video>
       </maml:row>
     </maml:fetch>
    
