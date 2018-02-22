@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:maml="http://interpersonalnet.com/maml/">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>VR Flix</title>
+    <script src="aframe-extras.js"></script>
+</head>
+<body>
+    <a-scene vr-mode-ui="enabled: true">
+        <a-assets>
+            <img id="groundTexture" src="*[HTMLRoot]*public_html/mollytest/assets/flooring.jpeg">
+        </a-assets>
+    <maml:fetch table="vrflix" criteria="true">
+    
+    <a-entity position="1 0 1">
+        
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="*[position_x]* *[position_y]* *[position_z]*" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="2 0 -7.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 -2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 2" color="#39BB82"></a-cylinder>
+        <a-plane color="#groundTexture" position="0 0 -4" rotation="-90 0 0" width="16" height="24" ></a-plane>
+      
+
+        <a-entity position="0 1 0">
+            <a-entity camera="camera" look-controls="look-controls"
+                      universal-controls="movementControls: checkpoint" 
+                      checkpoint-controls="mode: animate">
+            
+            <a-entity   cursor="fuse: true; maxDistance: 30; timeout: 500"
+                        position="0 0 -1" scale=".05 .05 .05"
+                        geometry="primitive: ring"
+                        material="color: #00ff00; shader: flat; opacity:.25;">
+            </a-entity>
+            
+            </a-entity>
+        </a-entity>
+      
+      </a-entity>
+     
+</maml:fetch>
+
+</a-scene>
+</body>
+</html>

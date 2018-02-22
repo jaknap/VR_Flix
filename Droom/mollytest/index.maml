@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:maml="http://interpersonalnet.com/maml/">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>VR Flix</title>
+    <script src="aframe-extras.js"></script>
+    <script src="aframe-video-controls.min.js"></script> 
+</head>
+<body>
+    <a-scene>
+    
+    <maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 4">
+    <maml:row> 
+        <a-video class="intersectable" material="shader: flat; src: assets/His&#32;Girl&#32;Friday&#32;(1940).mp4" position="*[position_x]* *[position_y]* *[position_z]*"  height="*[height]*" width="*[width]*"></a-video>
+      
+       </maml:row>
+    </maml:fetch>
+   
+     <!--<maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 6">
+    <maml:row>
+    <a-entity video-controls="src:a-video" distance="3.6" rotation="" scale="" visible="" position="*[position_x]* *[position_y]* *[position_z]*">
+      </a-entity>
+      </maml:row>
+    </maml:fetch>-->
+    
+     <maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 3">
+       <maml:row>
+        <a-plane color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="-90 0 0" height="*[height]*" width="*[width]*"></a-plane>
+         
+        </maml:row>
+    </maml:fetch>
+     
+     <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 1">
+     <maml:row>
+      <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 0 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
+      </maml:row>
+    </maml:fetch>
+    <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 2">
+     <maml:row>
+      <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 90 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
+     </maml:row>
+    </maml:fetch>
+    <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 3">
+     <maml:row>
+      <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 -90 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
+       
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="2 0 -7.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 -2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 2" color="#39BB82"></a-cylinder>
+      
+        <a-entity position="0 1 0">
+            <a-entity camera="userHeight: 1.6" look-controls="look-controls"
+                      universal-controls="movementControls: checkpoint" 
+                      checkpoint-controls="mode: animate">
+            
+            <a-entity   cursor="fuse: true; maxDistance: 30; timeout: 500"
+                        position="0 0 -1" scale=".05 .05 .05"
+                        geometry="primitive: ring"
+                        material="color: #00ff00; shader: flat; opacity:.25;">
+                        <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                        fill="forwards" from=".05 .05 .05" to=".01 .01 .01" dur="1500"></a-animation>
+            </a-entity>
+            
+
+
+
+            </a-entity>
+        </a-entity>
+
+        <a-sphere id="sph" color = "red" position="0 2.5 -27"></a-sphere>
+    
+    
+   
+     
+     </maml:row>
+    </maml:fetch>
+  
+</a-scene>
+<script>
+var xPos;
+var yPos;
+var zPos;
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+			var scene = document.querySelector('a-scene');
+			if (scene.hasLoaded) addEventListeners();
+			else scene.addEventListener('loaded', handleSceneLoaded);
+		});
+		function handleSceneLoaded() {
+			console.log('scene loaded');
+    		let vid = document.querySelector('a-video');
+            vid.addEventListener('click', function (evt) {
+                                 console.log(evt.detail.intersection.point.x);
+                                    console.log(evt.detail.intersection.point.y);
+                                    console.log(evt.detail.intersection.point.z);
+            var entityEl = document.querySelector('#sph');
+            entityEl.setAttribute('position', evt.detail.intersection.point.x + ' ' + evt.detail.intersection.point.y + ' ' + -27);
+            console.log(entityEl);
+  
+});
+		}
+
+
+function spherePosition(xPos,yPos,zPos){
+    console.log([xPos,yPos,zPos]);
+    //return [x,y,z];
+    var sceneEl = document.querySelector('a-scene');
+    var entityEl = document.querySelector('#sph');
+    entityEl.setAttribute('position', 0 + ' ' + 2.5 + ' ' + -27);
+    
+    console.log(entityEl);
+}
+</script>
+</body>
+</html>

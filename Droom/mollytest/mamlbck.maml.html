@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:maml="http://interpersonalnet.com/maml/">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hello World MAML</title>
+</head>
+<body>
+    <maml:fetch table="testVR" criteria="true" sort = "position" order = "ascending">
+    <table style="width:22em; background-color: #ffffff; padding:1em;">
+        <tr>
+            <th><maml:sort sort="position">Pos</maml:sort></th>
+        </tr>
+        <maml:row>
+            <tr>
+                <td><maml:field name="position"/></td>
+            </tr>
+        </maml:row>
+        <tr>
+            <th colspan="3" style="text-align:right;">Total Records: <maml:numrows/></th>
+        </tr>
+    </table>
+</maml:fetch>
+</body>
+</html>
