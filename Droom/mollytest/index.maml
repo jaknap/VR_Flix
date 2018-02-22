@@ -8,13 +8,11 @@
     <script src="aframe-video-controls.min.js"></script> 
 </head>
 <body>
-    <a-scene>
-    
+    <a-scene> 
     <maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 4">
-    <maml:row> 
-        <a-video class="intersectable" material="shader: flat; src: assets/His&#32;Girl&#32;Friday&#32;(1940).mp4" position="*[position_x]* *[position_y]* *[position_z]*"  height="*[height]*" width="*[width]*"></a-video>
-      
-       </maml:row>
+      <maml:row> 
+      <a-video class="intersectable" material="shader: flat; src: assets/His&#32;Girl&#32;Friday&#32;(1940).mp4" position="*[position_x]* *[position_y]* *[position_z]*"  height="*[height]*" width="*[width]*"></a-video>
+      </maml:row>
     </maml:fetch>
    
      <!--<maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 6">
@@ -27,18 +25,17 @@
      <maml:fetch table="vrflix" key="floor_id" criteria="floor_id = 3">
        <maml:row>
         <a-plane color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="-90 0 0" height="*[height]*" width="*[width]*"></a-plane>
-         
-        </maml:row>
+       </maml:row>
     </maml:fetch>
      
      <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 1">
-     <maml:row>
-      <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 0 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
+      <maml:row>
+        <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 0 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
       </maml:row>
     </maml:fetch>
     <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 2">
-     <maml:row>
-      <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 90 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
+      <maml:row>
+        <a-box color="*[color]*" position="*[position_x]* *[position_y]* *[position_z]*" rotation="0 90 0" depth="*[depth]*" width="*[width]*" height="*[height]*" ></a-box>
      </maml:row>
     </maml:fetch>
     <maml:fetch table="Walls" key="wall_id" criteria="wall_id = 3">
@@ -62,21 +59,13 @@
                         <a-animation begin="fusing" easing="ease-in" attribute="scale"
                         fill="forwards" from=".05 .05 .05" to=".01 .01 .01" dur="1500"></a-animation>
             </a-entity>
-            
-
-
-
             </a-entity>
         </a-entity>
 
         <a-sphere id="sph" color = "red" position="0 2.5 -27"></a-sphere>
-    
-    
-   
-     
+
      </maml:row>
     </maml:fetch>
-  
 </a-scene>
 <script type="text/javascript" src="js/interact.js"></script>
 </body>
