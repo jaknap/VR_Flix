@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dev Example — Networked-Aframe</title>
+    <meta name="description" content="Dev Example — Networked-Aframe">
+
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="/build.js"></script>
+    <script>window.NAF || document.write('<script src="https://unpkg.com/networked-aframe/dist/networked-aframe.min.js">\x3C/script>')</script>
+
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.5/dist/aframe-particle-system-component.min.js"></script>
+    <script src="/js/spawn-in-circle.component.js"></script>
+
+    <script>
+      // Define custom schema for syncing avatar color, set by random-color
+      NAF.schemas.add({
+        template: '#avatar-template',
+        components: [
+          'position',
+          'rotation',
+          {
+            selector: '.head',
+            component: 'material',
+            property: 'color'
+          }
+        ]
+      });
+
+      // Called by Networked-Aframe when connected to server
+      function onConnect () {
+        console.log("onConnect", new Date());
+      }
+    </script>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="/easyrtc/easyrtc.js"></script>
+    <a-scene networked-scene="
+      room: dev;
+      debug: true;
+      adapter: wseasyrtc;
+    ">
+      <a-assets>
+
+        <img id="grid" src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" crossorigin="anonymous">
+        <img id="sky" src="http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+        
+        <a-mixin id="checkpoint"></a-mixin>
+        <a-mixin id="checkpoint-hovered" color="#6CEEB5"></a-mixin>
+      
+      <!--https://thenounproject.com/term/play/5206/-->
+
+    <img id="playButton" src="assets/play_.png">
+    <!--https://thenounproject.com/search/?q=pause&i=806163-->
+    
+    <img id="pauseButton" src="assets/pause_.png">
+    
+
+    <img id="groundTexture" src="assets/flooring.jpeg">
+
+    <!-- https://www.pexels.com/photo/brown-brick-wall-207142/ -->
+    <img id="wallTexture" src="assets/walls.jpeg">
+    <!-- https://www.pexels.com/photo/antique-old-stonewall-vintage-132200/ -->
+    <img id="wallsTexture" src="assets/wallYellow.jpeg">
+
+    <!-- https://www.pexels.com/photo/orange-leather-207300/ -->
+    <img id="couchTexture" src="assets/couch_.jpeg">
+
+    <!-- VIDEO -->
+    
+
+     <video muted id="friday" autoplay loop="true" src="assets/His&#32;Girl&#32;Friday&#32;(1940).mp4"></video>
+
+        <!-- Templates -->
+
+        <!-- Avatar -->
+        <script id="avatar-template" type="text/html">
+          <a-entity class="avatar">
+            <a-sphere class="head"
+              color="#5985ff"
+              scale="0.45 0.5 0.4"
+              random-color
+            ></a-sphere>
+            <a-entity class="face"
+              position="0 0.05 0"
+            >
+              <a-sphere class="eye"
+                color="#efefef"
+                position="0.16 0.1 -0.35"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0 0 -1"
+                  scale="0.2 0.2 0.2"
+                ></a-sphere>
+              </a-sphere>
+              <a-sphere class="eye"
+                color="#efefef"
+                position="-0.16 0.1 -0.35"
+                scale="0.12 0.12 0.12"
+              >
+                <a-sphere class="pupil"
+                  color="#000"
+                  position="0 0 -1"
+                  scale="0.2 0.2 0.2"
+                ></a-sphere>
+              </a-sphere>
+            </a-entity>
+          </a-entity>
+        </script>
+
+        <script id="simple" type="text/html">
+          <a-sphere></a-sphere>
+        </script>
+        </a-assets>
+        
+        <!-- /Templates -->
+      <!--</a-assets>
+
+       <a-entity camera="userHeight: 1.6" position="-1.5 -0.3 -4.1" rotation = "0 -90 0"
+                checkpoint-controls="mode: animate">
+      
+        <a-entity cursor
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                  material="color: #CCC; shader: flat;">
+        </a-entity>
+      
+      </a-entity>
+    
+
+    </a-entity>-->
+
+
+
+
+      <a-entity position="1 0 1">
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="0 0 -5.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="2 0 -7.2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 -2" color="#39BB82"></a-cylinder>
+        <a-cylinder checkpoint="offset: 0 1.6 0" radius="1" height="0.1" position="1.5 0 2" color="#39BB82"></a-cylinder>
+      </a-entity>
+      
+      <a-entity geometry="primitive: plane" material="shader: flat; src: #friday" position="5.25 1.1 -4" rotation="0 0 0"  height="1.8" width="0.2"></a-entity>
+      <a-plane material="shader: flat;src: #friday" position="2.5 1.1 -7.5" rotation="0 -20 0"  height="1.8" width="6" ></a-plane>
+      <a-plane material="shader: flat;src: #friday" position="4 1.1 -0.3" rotation="0 -135 0" height="1.8" width="6" ></a-plane>
+      <!-- VIDEO -->
+      <!-- VIDEO -->
+
+      
+      <a-video src="#friday" class="video" width="6" height="1.8" position="5.15 1.1 -4" rotation="0 -90 0"></a-video>
+      
+      <!--CONTROLS -->
+      
+      <!--<a-entity video-controls="src:#friday" distance="3.6" position="5.0 0.7 -3.8">-->
+
+      <a-entity id="player" networked="template:#avatar-template;showLocalTemplate:false;" camera="userHeight: 1.6" spawn-in-circle="radius:3" wasd-controls look-controls
+                  cursor position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                  material="color: #CCC; shader: flat;"></a-entity>
+
+      <a-entity position="0 0 0"
+        geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
+        material="src: #grid; repeat: 10000 10000; transparent: true; metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
+
+      <a-entity light="color: #ccccff; intensity: 1; type: ambient;" visible=""></a-entity>
+      <a-entity light="color: #ffaaff; intensity: 1.5" position="5 5 5"></a-entity>
+
+      <a-sky src="#sky" rotation="0 -90 0"></a-sky>
+      <a-entity id="particles" particle-system="preset: snow"></a-entity>
+    </a-scene>
+
+    <!-- GitHub Corner. -->
+    
+    <script>
+      // On mobile remove elements that are resource heavy
+      var isMobile = AFRAME.utils.device.isMobile();
+
+      if (isMobile) {
+        var particles = document.getElementById('particles');
+        particles.parentNode.removeChild(particles);
+      }
+    </script>
+  </body>
+</html>
