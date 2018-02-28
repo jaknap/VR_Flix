@@ -6,7 +6,9 @@ Research Project developed at RIT, which enables users located in different loca
 Tech-stack used: Three.js, A-frame, Molly, WebRTC
 
 A-frame documentation: https://aframe.io/docs/0.7.0/introduction/
+<br>
 Molly documentation: https://mollydev.magic.rit.edu/~pu3876/docs
+<br>
 WebRTC documentation: https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API
 
 
