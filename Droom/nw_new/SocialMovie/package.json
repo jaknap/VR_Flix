@@ -1,0 +1,13 @@
+{
+  "name": "connectedU",
+  "version": "1.0.0",
+  "description": "My first multi-user virtual reality",
+  "scripts": {
+    "start": "node ./server/easyrtc-server.js"
+  },
+  "author": "YOUR_NAME",
+  "dependencies": {
+    "auto-sni": "^2.3.2",
+    "networked-aframe": "^0.5.0"
+  }
+}
